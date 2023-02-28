@@ -1,1 +1,275 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         :root {
+            --color-primary: #3f63e3;
+            --primary-background-color: #fff;
+            --primary-button-background-color: #c9d5ff;
+        }
+        /*##### RESPONSIVE AREA #####*/
+        
+        .bm-mobile-header {
+            min-height: 100px;
+            background-color: #fff;
+            box-shadow: 0px 1px 0px 0px rgb(0 0 0 / 10%);
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .bm-header {
+            display: none;
+        }
+        
+        .bm-mobile-menu-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            z-index: -1;
+            cursor: pointer;
+        }
+        
+        .bm-mobile-menu-line {
+            top: 1.4rem;
+            left: 0.6rem;
+        }
+        
+        .bm-mobile-menu-line,
+        .bm-mobile-menu-line::before,
+        .bm-mobile-menu-line::after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 1.7em;
+            background: black;
+            transition: all .2s ease;
+        }
+        
+        .bm-mobile-menu-line::before {
+            top: -0.6rem;
+        }
+        
+        .bm-mobile-menu-line::after {
+            top: 0.6rem;
+        }
+        
+        .bm-mobile-menu-wrapper.active {
+            opacity: 1;
+            z-index: 1;
+            background-color: white;
+            transition: all 0.3s ease-out;
+        }
+        
+        .bm-mobile-menu.active {
+            background-color: green;
+        }
+        
+        .bm-menu-item {
+            font-family: "HK Grotesk", Sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 3rem;
+            align-items: center;
+            display: flex;
+        }
+        
+        .bm-menu-item>a {
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--color-primary);
+            padding: 13px 20px;
+        }
+        
+        .bm-menu-item>a:hover {
+            color: var(--color-primary);
+            transition: 0.3s ease-in-out;
+        }
+        
+        .bm-nav-button {
+            color: var(--color-primary);
+            background-color: var(--primary-button-background-color);
+            padding: 13px 16px;
+            border-radius: 50px;
+        }
+        
+        .bm-nav-button:hover {
+            background-color: var(--color-primary);
+            color: var(--primary-button-background-color);
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .bm-nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .bm-logo {
+            padding: 18px 20px;
+            width: 180px;
+        }
+        
+        .bm-mobile-menu {
+            position: absolute;
+            right: 1rem;
+            top: 1.7rem;
+            width: 3rem;
+            height: 3rem;
+            z-index: 1;
+        }
+        
+        .bm-mobile-menu.active {
+            position: fixed;
+            background: transparent;
+            transform: rotate(-135deg)
+        }
+        
+        .bm-mobile-menu.active .bm-mobile-menu-line::before,
+        .bm-mobile-menu.active .bm-mobile-menu-line::after {
+            top: 0;
+            background-color: var(--color-primary);
+        }
+        
+        .bm-mobile-menu.active .bm-mobile-menu-line::before {
+            transform: rotate(90deg)
+        }
+        /*##### TABLET #####*/
+        
+        @media screen and (min-width: 600px) {}
+        /*##### LAPTOP LARGE #####*/
+        
+        @media screen and (min-width: 1260px) {
+            .bm-mobile-header {
+                display: none;
+            }
+            .bm-header {
+                min-height: 100px;
+                background-color: #fff;
+                box-shadow: 0px 1px 0px 0px rgb(0 0 0 / 10%);
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+            .bm-logo {
+                padding: 18px 20px;
+                width: 180px;
+                margin-right: 8rem;
+            }
+            .bm-nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+            }
+            .bm-menu-item {
+                font-family: "HK Grotesk", Sans-serif;
+                font-size: 13px;
+                font-weight: 700;
+                line-height: 16px;
+                align-items: center;
+                display: flex;
+            }
+            .bm-menu-item>a {
+                padding: 1rem;
+                text-decoration: none;
+                color: black;
+                padding: 13px 20px;
+            }
+            .bm-menu-item>a:hover {
+                color: var(--color-primary);
+                transition: 0.3s ease-in-out;
+            }
+            .bm-nav-button {
+                color: var(--color-primary);
+                background-color: var(--primary-button-background-color);
+                padding: 13px 16px;
+                border-radius: 20px;
+            }
+            .bm-nav-button:hover {
+                background-color: var(--color-primary);
+                color: var(--primary-button-background-color);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        /*##### DESKTOP #####*/
+        
+        @media screen and (min-width: 1600px) {}
+        /*##### RESPONSIVE AREA END #####*/
+    </style>
+</head>
+
+<body>
+    <header class="bm-header">
+        <div class="bm-logo">
+            <a href="https://onkel-hh.de/"><img src="https://onkel-hh.de/wp-content/uploads/2020/04/onkel-sahingöz-logo-ohne-rand.svg" alt="Logo"></a>
+        </div>
+        <nav class="bm-nav">
+            <ul>
+                <li class="bm-menu-item"><a href="https://onkel-hh.de/">Home</a></li>
+                <li class="bm-menu-item"><a href="https://onkel-hh.de/unternehmen">Unternehmen</a></li>
+                <li class="bm-menu-item"><a href="https://onkel-hh.de/unsere-marken">Unsere Marken</a></li>
+                <li class="bm-menu-item"><a href="https://onkel-hh.de/kontakt">Kontakt</a></li>
+                <li class="bm-menu-item"><a href="https://onkel-hh.de/kunde-werden">Kunde werden</a></li>
+                <li class="bm-menu-item">
+                    <a href="https://shop.onkel-hh.de">
+                        <div class="bm-nav-button">Zum Shop<span style="padding-left: 10px;">></span></div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <header class="bm-mobile-header">
+        <div class="bm-logo">
+            <a href="https://onkel-hh.de/"><img src="https://onkel-hh.de/wp-content/uploads/2020/04/onkel-sahingöz-logo-ohne-rand.svg" alt="Logo"></a>
+        </div>
+
+        <div class="bm-mobile-menu-wrapper">
+            <nav class="bm-nav">
+                <ul>
+                    <li class="bm-menu-item"><a href="https://onkel-hh.de/">Home</a></li>
+                    <li class="bm-menu-item"><a href="https://onkel-hh.de/unternehmen">Unternehmen</a></li>
+                    <li class="bm-menu-item"><a href="https://onkel-hh.de/unsere-marken">Unsere Marken</a></li>
+                    <li class="bm-menu-item"><a href="https://onkel-hh.de/kontakt">Kontakt</a></li>
+                    <li class="bm-menu-item"><a href="https://onkel-hh.de/kunde-werden">Kunde werden</a></li>
+                    <li class="bm-menu-item">
+                        <a href="https://shop.onkel-hh.de">
+                            <div class="bm-nav-button">Zum Shop<span style="padding-left: 10px;">></span></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="bm-mobile-menu" onclick="toggleMobileMenu()">
+            <span class="bm-mobile-menu-line"></span>
+        </div>
+    </header>
+    <script>
+        "use strict"
+
+        function toggleMobileMenu() {
+            let menu = document.querySelector(".bm-mobile-menu-wrapper");
+            let menuIcon = document.querySelector(".bm-mobile-menu");
+            menu.classList.toggle("active");
+            menuIcon.classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>
