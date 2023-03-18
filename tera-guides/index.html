@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tera Guides</title>
     <style>
-         :root {
+        :root {
             --color-primary: #3f63e3;
             --primary-background-color: #fff;
             --primary-button-background-color: #c9d5ff;
         }
+
         /*##### RESPONSIVE AREA #####*/
-        
+
         .bm-mobile-header {
             min-height: 100px;
             background-color: #fff;
@@ -21,12 +22,13 @@
             align-items: center;
             display: flex;
             justify-content: center;
+            grid-area: header;
         }
-        
+
         .bm-header {
             display: none;
         }
-        
+
         .bm-mobile-menu-wrapper {
             position: fixed;
             top: 0;
@@ -40,12 +42,12 @@
             z-index: -1;
             cursor: pointer;
         }
-        
+
         .bm-mobile-menu-line {
             top: 1.4rem;
             left: 0.6rem;
         }
-        
+
         .bm-mobile-menu-line,
         .bm-mobile-menu-line::before,
         .bm-mobile-menu-line::after {
@@ -56,26 +58,26 @@
             background: black;
             transition: all .2s ease;
         }
-        
+
         .bm-mobile-menu-line::before {
             top: -0.6rem;
         }
-        
+
         .bm-mobile-menu-line::after {
             top: 0.6rem;
         }
-        
+
         .bm-mobile-menu-wrapper.active {
             opacity: 1;
             z-index: 1;
             background-color: white;
             transition: all 0.3s ease-out;
         }
-        
+
         .bm-mobile-menu.active {
             background-color: green;
         }
-        
+
         .bm-menu-item {
             font-family: "HK Grotesk", Sans-serif;
             font-size: 2rem;
@@ -84,32 +86,32 @@
             align-items: center;
             display: flex;
         }
-        
+
         .bm-menu-item>a {
             padding: 1rem;
             text-decoration: none;
             color: var(--color-primary);
             padding: 13px 20px;
         }
-        
+
         .bm-menu-item>a:hover {
             color: var(--color-primary);
             transition: 0.3s ease-in-out;
         }
-        
+
         .bm-nav-button {
             color: var(--color-primary);
             background-color: var(--primary-button-background-color);
             padding: 13px 16px;
             border-radius: 50px;
         }
-        
+
         .bm-nav-button:hover {
             background-color: var(--color-primary);
             color: var(--primary-button-background-color);
             transition: all 0.3s ease-in-out;
         }
-        
+
         .bm-nav ul {
             padding: 0;
             list-style: none;
@@ -119,12 +121,12 @@
             align-items: center;
             text-align: center;
         }
-        
+
         .bm-logo {
             padding: 18px 20px;
             width: 180px;
         }
-        
+
         .bm-mobile-menu {
             position: absolute;
             right: 1rem;
@@ -133,31 +135,38 @@
             height: 3rem;
             z-index: 1;
         }
-        
+
         .bm-mobile-menu.active {
             position: fixed;
             background: transparent;
             transform: rotate(-135deg)
         }
-        
+
         .bm-mobile-menu.active .bm-mobile-menu-line::before,
         .bm-mobile-menu.active .bm-mobile-menu-line::after {
             top: 0;
             background-color: var(--color-primary);
         }
-        
+
         .bm-mobile-menu.active .bm-mobile-menu-line::before {
             transform: rotate(90deg)
         }
+
+        .bm-sidebar {
+            display: none;
+        }
+
         /*##### TABLET #####*/
-        
+
         @media screen and (min-width: 600px) {}
+
         /*##### LAPTOP LARGE #####*/
-        
+
         @media screen and (min-width: 1260px) {
             .bm-mobile-header {
                 display: none;
             }
+
             .bm-header {
                 min-height: 100px;
                 background-color: #fff;
@@ -165,19 +174,22 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
-                margin-bottom: 2rem;
+                grid-area: header;
             }
+
             .bm-logo {
                 padding: 18px 20px;
                 width: 180px;
                 margin-right: 8rem;
             }
+
             .bm-nav ul {
                 list-style: none;
                 display: flex;
                 justify-content: center;
                 flex-direction: row;
             }
+
             .bm-menu-item {
                 font-family: "HK Grotesk", Sans-serif;
                 font-size: 13px;
@@ -186,64 +198,104 @@
                 align-items: center;
                 display: flex;
             }
+
             .bm-menu-item>a {
                 padding: 1rem;
                 text-decoration: none;
                 color: black;
                 padding: 13px 20px;
             }
+
             .bm-menu-item>a:hover {
                 color: var(--color-primary);
                 transition: 0.3s ease-in-out;
             }
+
             .bm-nav-button {
                 color: var(--color-primary);
                 background-color: var(--primary-button-background-color);
                 padding: 13px 16px;
                 border-radius: 20px;
             }
+
             .bm-nav-button:hover {
                 background-color: var(--color-primary);
                 color: var(--primary-button-background-color);
                 transition: all 0.3s ease-in-out;
             }
+
+            .bm-sidebar {
+                display: block;
+                position: fixed;
+                width: 20rem;
+                height: 100%;
+                background-color: red;
+                grid-area: sidebar;
+            }
+
+            .bm-grid-container {
+                grid-template-areas:
+                    "header" "header"
+                    "sidebar" "main"
+                    "sidebar" "footer";
+            }
+            .bm-main {
+                grid-area: main;
+            }
         }
+
         /*##### DESKTOP #####*/
-        
+
         @media screen and (min-width: 1600px) {}
+
         /*##### RESPONSIVE AREA END #####*/
     </style>
 </head>
 
 <body>
-    <header class="bm-header">
-        <div class="bm-logo">
-            <a href="https://acealone.github.io"><img src="" alt="Akatsuki Logo"></a>
-        </div>
-        <nav class="bm-nav">
-            <ul>
-                <li class="bm-menu-item"><a href="https://acealone.github.io">Home</a></li>
-                <li class="bm-menu-item"><a href="https://acealone.github.io/tera-guides">Tera Guides</a></li>
-            </ul>
-        </nav>
-    </header>
-    <header class="bm-mobile-header">
-        <div class="bm-logo">
-            <a href="https://acealone.github.io"><img src="" alt="Akatsuki Logo"></a>
-        </div>
-
-        <div class="bm-mobile-menu-wrapper">
+    <div class="bm-grid-container">
+        <header class="bm-header">
+            <div class="bm-logo">
+                <a href="https://acealone.github.io"><img src="" alt="Akatsuki Logo"></a>
+            </div>
             <nav class="bm-nav">
                 <ul>
                     <li class="bm-menu-item"><a href="https://acealone.github.io">Home</a></li>
                     <li class="bm-menu-item"><a href="https://acealone.github.io/tera-guides">Tera Guides</a></li>
                 </ul>
             </nav>
+        </header>
+        <header class="bm-mobile-header">
+            <div class="bm-logo">
+                <a href="https://acealone.github.io"><img src="" alt="Akatsuki Logo"></a>
+            </div>
+
+            <div class="bm-mobile-menu-wrapper">
+                <nav class="bm-nav">
+                    <ul>
+                        <li class="bm-menu-item"><a href="https://acealone.github.io">Home</a></li>
+                        <li class="bm-menu-item"><a href="https://acealone.github.io/tera-guides">Tera Guides</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="bm-mobile-menu" onclick="toggleMobileMenu()">
+                <span class="bm-mobile-menu-line"></span>
+            </div>
+        </header>
+        <aside>
+            <div class="bm-sidebar">
+                <ul>
+                    <li>test</li>
+                    <li>test2</li>
+                    <li>test3</li>
+                </ul>
+            </div>
+        </aside>
+        <div class="bm-main">
+            <span style="color: yellow">this is a test</span>
         </div>
-        <div class="bm-mobile-menu" onclick="toggleMobileMenu()">
-            <span class="bm-mobile-menu-line"></span>
-        </div>
-    </header>
+    </div>
+
     <script>
         "use strict"
 
